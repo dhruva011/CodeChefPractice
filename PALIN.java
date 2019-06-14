@@ -8,48 +8,53 @@ public class PALIN {
     int testcases = in.nextInt();
     
     for(int i=1;i<=testcases;i++){
-      String k = in.next();
-      calculate(k);
-     
+      String s = in.next();
+      char[] a = s.toCharArray();
+      
+      if(s.length()%2==0)
+        calculateEven(a,s.length());
+      else
+        calculateOdd(a,s.length());
     }
     
   }
   
-  static void calculate(String k){
-    final int mid = k.length() / 2; 
-    String[] parts = {k.substring(0, mid),k.substring(mid)};
-    
-    System.out.println(parts[0]); //first part
-    System.out.println(parts[1]); //second part
-    
-    if(k.length()%2==0){
-     //Even 
-     StringBuilder s = new StringBuilder(parts[0]);
-     String reverse = s.reverse().toString();
-     //System.out.println("Reverse : "+reverse);
-     BigInteger reverseNum = new BigInteger(reverse);
-     BigInteger secondPart = new BigInteger(parts[1]);
-     if(reverseNum.compareTo(secondPart)==1){
-       System.out.println("Final Answer = "+parts[0]+reverseNum);
+  static void calculateOdd(char[] a,int size){
+    if(isPalindrome(a,size))
+      findNextPalindrome(a,size);
+    printCharArray(a,size);
+  }
+  
+  static void findNextPalindrome(char[] a,int size){
+     if(size%2==1)//odd
+     {
+      int mid = size/2;
+      if(a[mid]!='9')
+        a[mid]++;
+      else{
+        //Add one to 
+      }
      }
-     else{
-       BigInteger firstPart = new BigInteger(parts[0]); 
-       firstPart = firstPart.add(BigInteger.ONE);
-       
-       if(parts[0].length()==(firstPart+"").length){
-         s = new StringBuilder(firstPart+"");
-         reverse = s.reverse().toString();
-         System.out.println("Final Answer = "+firstPart+reverse);
-       }
-       else{
-        String temp =  
-       }
-     }
-    }
-    else{
-     //Odd 
-     
-    }
+  }
+  
+  static boolean isPalindrome(char[] a,int size){
+   int mid = size/2;
+   for(int i=mid;i<size;i++){
+    if(a[i]!=a[size-i-1]) 
+      return false;
+   }
+   return true;
+  }
+  
+  static void printCharArray(char[] a,int size){
+   for(int i=0;i<size;i++)
+     System.out.print(a[i]);
+  }
+  
+  
+  static void calculateEven(char[] a,int size){
+   for(int i=0;i<size;i++)
+     System.out.println(a[i]);
   }
     
 }
