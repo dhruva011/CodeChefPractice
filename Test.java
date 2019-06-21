@@ -3,6 +3,14 @@ public class Test {
   
   
   public static void main(String[] args) { 
+    
+    int num1 = 6/2*(3);
+    int num2 = 6/2*3;
+    
+    System.out.println("With Bracket = "+num1+" Without Bracket = "+num2);
+    
+    
+    /*
     Scanner in  = new Scanner(System.in);
     int n = in.nextInt();
     long k = in.nextLong();
@@ -152,7 +160,7 @@ public class Test {
       }
       
      }
-    
+    */
     }
 
 }
