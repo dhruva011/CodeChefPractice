@@ -1,0 +1,53 @@
+import java.util.*;
+class RSIGNS{
+    static long maxIndex = 1;
+    static long maxValue = 10;
+     public static void main(String []args){
+     /* Scanner in = new Scanner(System.in);
+       int testcases = in.nextInt();
+       for(int i=0;i<testcases;i++){
+         long k = in.nextLong();
+         if(k<=1000000)
+           getValue(k);
+         else
+           calculateHigherOrder(k);
+       }  */
+      // calculateHigherOrder(10000000); 
+       getValue(200000000);
+     }
+       
+     
+     static void calculateHigherOrder(long k){
+       
+     }
+     
+     static void getValue(long k){
+        long value;
+        if(k==maxIndex)
+        {
+          System.out.println(maxValue);
+          return;
+        }
+        if(k>maxIndex){
+           value = maxValue;
+           long i= 0;
+           for( i=maxIndex+1;i<=k;i++){
+              //System.out.println("i="+i);
+              value = ((2*(value%1000000007))%1000000007);
+            }
+            maxIndex=i-1;
+            maxValue=value;
+            System.out.println(value);
+            return;
+          }     
+        if(k<maxIndex){
+            long i= 0;
+            value=10;
+            for(i=2;i<=k;i++){
+              value = ((2*(value%1000000007))%1000000007);
+            }
+            System.out.println(value);
+        }
+         
+     }
+}
